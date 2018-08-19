@@ -23,6 +23,7 @@ _Wikipedia [Apache Kafka](https://en.wikipedia.org/wiki/Apache_Kafka)_
 - Data handling
 - depends on Apache Zookeeper
 - run a minimum of 3 in production
+test
 
 ---
 
