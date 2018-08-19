@@ -24,7 +24,6 @@ _Wikipedia [Apache Kafka](https://en.wikipedia.org/wiki/Apache_Kafka)_
 - depends on Apache Zookeeper
 - run a minimum of 3 in production
 
-
 ---
 
 # END
