@@ -21,7 +21,7 @@ Kafka uses topics as an address for a message. All messages are stored for a con
 Partitions are used to achieve horizontal scaling by spreading a topic over multiple partitions. On a partition the order of the messages is guaranteed.
 
 - based on modulo hash value of the key and the amount of partitions
-- when the key changes or the amount of partitions changes Kafka needs to make repartitioning that will block the complete process 
+- when the key changes or the amount of partitions changes Kafka needs to make repartitioning that will block the complete process
 
 ## Offset
 
@@ -37,7 +37,7 @@ The brokers are the heart of Kafka. For production and production near systems a
 
 ## Replication Factor
 
-The factor describes how much redundant copies are spread of the brokers.
+The factor describes how much redundant copies are spread over the brokers.
 
 ## Partition Leader
 

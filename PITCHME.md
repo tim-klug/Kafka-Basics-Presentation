@@ -25,7 +25,7 @@ _Wikipedia [Apache Kafka](https://en.wikipedia.org/wiki/Apache_Kafka)_
 
 ---
 
-## Structure
+# Structure
 
 __4 Major Parts__
 
@@ -67,6 +67,15 @@ __4 Major Parts__
 - is a key value pair
 - the value contains the payload
 - the key is used for routing
+
+---
+
+# Data Organization
+
+- Data belong to Topics
+- Topis are stored on Partitions
+- Topics are replicated over Broker
+- Partition Leader organize the data of a Topic
 
 ---
 
