@@ -72,11 +72,16 @@ __4 Major Parts__
 
 # Data Organization
 
-- Data belong to Topics
-- Topis are stored on Partitions
+- a Message is sent to Topics
+- Messages are stored in Segments on a Topic
+- Topics are stored on Partitions
 - Topics are replicated over Broker
 - Partition Leader organize the data of a Topic
 
 ---
+
+## the flow of sending a Message
+
+Image
 
 # END
