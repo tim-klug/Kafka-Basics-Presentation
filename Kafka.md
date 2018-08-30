@@ -291,6 +291,13 @@ Processing transformations can be stateful or stateless, depending on the operat
 - marks data for repartitioning
 - best practice is to isolate the transformation to know exactly where the partitioning happens
 
+### peek
+
+- read a key value pair
+- run any action with these data
+- returns the same event stream
+- events are unchanged
+
 ## Terminal Functions for KStreams and KTables
 
 ### to
