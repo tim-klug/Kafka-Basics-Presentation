@@ -297,7 +297,7 @@ Processing transformations can be stateful or stateless, depending on the operat
 - run any action with these data
 - returns the same event stream
 - events are unchanged
-- test2
+- test3
 
 ## Terminal Functions for KStreams and KTables
 
