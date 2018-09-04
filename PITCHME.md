@@ -25,7 +25,7 @@ _Wikipedia [Apache Kafka](https://en.wikipedia.org/wiki/Apache_Kafka)_
 
 ---
 
-# Structure
+## Structure
 
 __4 Major Parts__
 
@@ -36,7 +36,7 @@ __4 Major Parts__
 
 +++
 
-## Broker
+### Broker
 
 - nodes of the cluster
 - Kafkas backbone
@@ -46,7 +46,7 @@ __4 Major Parts__
 
 +++
 
-## Producer
+### Producer
 
 - produces a Message and sends it to the Broker
 - can be a connection to a database
@@ -54,7 +54,7 @@ __4 Major Parts__
 
 +++
 
-## Consumer
+### Consumer
 
 - receives a Message from a Broker
 - has no knowledge of the Producer
@@ -62,7 +62,7 @@ __4 Major Parts__
 
 +++
 
-## Message
+### Message
 
 - is a key value pair
 - the value contains the payload
@@ -70,7 +70,7 @@ __4 Major Parts__
 
 ---
 
-# The Kafka Story
+## The Kafka Story
 
 - a _Producer_ sends a _Message_
 - a _Message_ is sent to a _Topics_
@@ -83,8 +83,86 @@ __4 Major Parts__
 
 ---
 
-## the flow of sending a Message
+### the flow of sending a Message
 
 Image
 
-# END
+// Show a message that moves through the system (simplified)
+
+---
+
+### The Architecture of Kafka
+
+Image
+
+// Show the boxed design of Kafka
+
++++
+
+## Demo
+
+---
+
+### What you will see
+
+- running a broker (single mode)
+- creating a new topic
+- send a message
+- consume a message
+
+// landoop session
+
++++
+
+## Guidelines
+
+- use max. 4,000 per broker
+- use not more than 20,000 partitions
+- use max 10 partitions per topic
+- use 3 replicas (avoid split brains)
+
++++
+
+## End of Life
+
+- cleanups happen per Segment
+- more often cleanups will increase Ram and CPU
+- Kafka uses Cleanup Policies
+
+```
+log.cleaner.backoff.ms=15000
+```
+
+---
+
+### Cleanup Policy 1
+
+- deletion based on time (default 1 week)
+- additional configurable file size (default -1 // infinite)
+
+```
+log.retention.hours: 168 // one week default
+log.retention.byte: -1 // infinite
+log.cleanup.policy=delete
+```
+
+---
+
+### Cleanup Policy 2
+
+- deletion for updated keys
+
+```
+log.cleanup.policy=compact
+```
+
+### Compression
+
+- logs can be compressed
+- only for text messages
+
+```
+compression.type: producer // (gzip, snappy, lz4, uncompressed, producer)
+```
+
+## END

@@ -78,6 +78,14 @@ To use a round robin mode, a null value for the key can be passed.
 
 The value is the payload that will be the content of the message. Here serializable formats like Json or Avro are used.
 
+## Segments
+
+Partitions contains of segments. These segments have an offset and a range and an id. The last segment has no upper bound, because it is active and still increasing.
+
+Segments are created based on time and size. Both values are configurable. Depending on which is hit at first, the segment is created. Segments have two indexes. An offset to a position and a timestamp to the offset index.
+
+By default the file size of a segment is 1GB. Smaller size would lead to more often log compaction and Kafka needs to have more files open. This might lead to an error. The default value for the timestamp is 1 week.
+
 ## Zookeeper
 
 Zookeeper sits between the broker and the harddrive, manages all data handling and helps keeping the cluster up and running. Kafka depends on Zookeeper. There are possibilities to [run Kafka on k8s without Zookeeper](https://banzaicloud.com/blog/kafka-on-etcd/).
@@ -164,14 +172,6 @@ To calculate the amount of partitions: 1 or 2 x number of broker, max 10 partiti
 
 Replications should be 2 or max 3. If there are more replicas around, the amount of disk space increases by times of this amount and longer replications. Best practice is 3.
 
-## Segments
-
-Partitions contains of segments. These segments have an offset and a range and an id. The last segment has no upper bound, because it is active and still increasing.
-
-Segments are created based on time and size. Both values are configurable. Depending on which is hit at first, the segment is created. Segments have two indexes. An offset to a position and a timestamp to the offset index.
-
-By default the file size of a segment is 1GB. Smaller size would lead to more often log compaction and Kafka needs to have more files open. This might lead to an error. The default value for the timestamp is 1 week.
-
 ## Clean Up
 
 A cleanup happens for segments. If segments are smaller a cleanup happens more often, but will consume a resources (Ram, CPU).
@@ -188,7 +188,7 @@ Kafaka deletes data based on age, default is 1 week for all user topics. It is p
 log.retention.hours: 168 // one week default
 log.retention.byte: -1 // infinite
 log.cleanup.policy=delete
-```
+```	
 
 ### Policy 2
 
