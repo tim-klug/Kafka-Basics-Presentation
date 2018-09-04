@@ -70,13 +70,16 @@ __4 Major Parts__
 
 ---
 
-# Data Organization
+# The Kafka Story
 
-- a Message is sent to Topics
-- Messages are stored in Segments on a Topic
-- Topics are stored on Partitions
-- Topics are replicated over Broker
-- Partition Leader organize the data of a Topic
+- a _Producer_ sends a _Message_
+- a _Message_ is sent to a _Topics_
+- _Messages_ are stored in _Segments_ on a _Topic_
+- _Topics_ are stored on _Partitions_
+- _Topics_ are _replicated_ over _Broker_
+- _Partition Leader_ organize the data of a _Topic_
+- the _Message_ is sent to a _Consumer_
+- the _Consumer_ _commits_ the _Offset_ to the _Broker_
 
 ---
 
